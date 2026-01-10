@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects</title>
+
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --card: rgba(255, 255, 255, 0.06);
+      --glass: rgba(255, 255, 255, 0.08);
+      --text: #ffffff;
+      --muted: #a1a1aa;
+      --primary: linear-gradient(90deg, #7c3aed, #ec4899);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* ================= NAVBAR ================= */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 24px 0;
+      transition: 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      padding: 14px 0;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 600;
+      background: var(--primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      margin: 12px 16px 0;
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .mobile-menu a {
+      padding: 14px 20px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .mobile-menu a:hover {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .menu-btn { display: block; }
+    }
+
+    /* ================= PROJECTS ================= */
+    .portfolio-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 160px 24px 120px;
+    }
+
+    .page-heading {
+      text-align: center;
+      margin-bottom: 80px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.6s ease;
+    }
+
+    .page-heading.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .page-heading h1 {
+      font-size: 46px;
+      margin-bottom: 14px;
+      background: var(--primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-heading p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .project-card {
+      position: sticky;
+      top: 120px;
+      background: var(--card);
+      backdrop-filter: blur(14px);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 120px;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: 0.6s ease;
+    }
+
+    .project-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .project-number {
+      font-size: 36px;
+      font-weight: bold;
+      opacity: 0.3;
+    }
+
+    .client-label {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+    }
+
+    .client-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .live-button {
+      padding: 10px 18px;
+      background: var(--primary);
+      color: white;
+      border-radius: 999px;
+      font-size: 13px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .project-thumbs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .project-thumbs img {
+      width: 100%;
+      border-radius: 16px;
+      transition: transform 0.4s ease;
+    }
+
+    .project-thumbs img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">Ritika.</a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="achievement.html">Achievements</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="achievement.html">Achievements</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- PROJECTS -->
+<div class="portfolio-container">
+
+  <div class="page-heading">
+    <h1>Selected Projects</h1>
+    <p>A showcase of my hands-on work, experiments, and real-world builds.</p>
+  </div>
+
+  <!-- PROJECT 01 -->
+  <section class="project-card">
+      
+    <div class="project-header">
+      <span class="project-number">01</span>
+      <div>
+        <p class="client-label">PROJECT</p>
+        <p class="client-name">ReWear-Sustainable Fashion</p>
+      </div>
+      <a href=" https://ritikamittal-19.github.io/Re-Wear-website/" target="_blank" class="live-button">LIVE</a>
+    </div>
+    <div class="project-thumbs">
+      <img src="css/pr31.png">
+      <img src="css/pr33.png">
+      <img src="css/pr32.png">
+    </div>
+  </section>
+
+  <!-- PROJECT 02 -->
+  <section class="project-card">
+    <div class="project-header">
+      <span class="project-number" style="margin-right: 8px;">02</span>
+      <div>
+        <p class="client-label">PROJECT</p>
+        <p class="client-name">RideGo-Smart Ride Booking</p>
+        <p class="client-label">A real-time ride-hailing and ride-pooling app enabling instant bookings, live trip tracking, and cost-efficient ride matching using React Native, FastAPI, MongoDB, and WebSockets.</p>
+     
+      </div>
+      <a href=" https://ritikamittal-19.github.io/RideGo/" target="_blank" class="live-button">LIVE</a>
+    </div>
+    <div class="project-thumbs">
+      <img src="css/ride2.png">
+      <img src="css/ride1.png">
+      <img src="css/ride3.png">
+    </div>
+  </section>
+
+  <!-- PROJECT 03 -->
+  <section class="project-card">
+    <div class="project-header">
+      <span class="project-number" style="margin-right: 8px;">03</span>
+      <div>
+        <p class="client-label">Project</p>
+        <p class="client-name">Shopora-The Future of AI-Driven Multi-Vendor eCommerce</p>
+        <p class="client-label">An AI-powered multivendor e-commerce platform offering personalized shopping, smart recommendations, and vendor management built with the PERN stack.</p>
+     
+      </div>
+      <a href="https://shopora-five.vercel.app" target="_blank" class="live-button">LIVE</a>
+    </div>
+    <div class="project-thumbs">
+      <img src="/css/shop1.png">
+      <img src="/css/shop2.png">
+      <img src="/css/shop3.png">
+    </div>
+  </section>
+
+</div>
+
+<script>
+  const navbar = document.getElementById("navbar");
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  window.addEventListener("scroll", () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+  });
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.style.display =
+      mobileMenu.style.display === "flex" ? "none" : "flex";
+    menuBtn.textContent = menuBtn.textContent === "☰" ? "✕" : "☰";
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll(".page-heading, .project-card")
+    .forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

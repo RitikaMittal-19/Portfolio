@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ritika </title>
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;1,400&family=Montserrat:ital,wght@1,300&family=Roboto&family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+
+      :root {
+  --glass: rgba(255, 255, 255, 0.08);
+  --muted: rgba(255, 255, 255, 0.7);
+}
+      nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 24px 0;
+      transition: 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      padding: 14px 0;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #7c3aed, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #7c3aed, #ec4899);
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      margin: 12px 16px 0;
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .mobile-menu a {
+      padding: 14px 20px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .mobile-menu a:hover {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .menu-btn {
+        display: block;
+      }
+    }
+      .icon-stack {
+        display: flex;
+        scroll-behavior: smooth;
+        will-change: transform;
+      }
+
+  @keyframes slide-left {
+  from { transform: translateX(50%); }
+  to { transform: translateX(0%); }
+  }
+
+.scroll-container {
+  width: 100vw;
+  height: 30vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-track {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+  animation: slide-left 5s linear infinite;
+}
+
+.image-track img {
+  padding: 2px;
+  height: 100%;
+  width: auto;
+  flex: 0 0 auto;
+  object-fit: cover;
+  width: max-content;
+  animation: scroll-left 15s linear infinite;
+}
+
+.image-track img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  flex-shrink: 0;
+  padding: 2px;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+      .gradient-text {
+         background: linear-gradient(90deg, #6414b5, #a232b6);
+    
+           -webkit-background-clip: text;
+           background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+           color: transparent;
+
+           display: inline-block;
+      }
+      .navbar {
+  width: 100%;                  /* full width */
+  background-color: #ffffff;    /* white background */
+  padding: 20px 0;              /* more height */
+  text-align: center;           /* center links */
+  border-bottom: 2px solid #ddd;/* optional subtle line */
+}
+
+      .hero-text {
+        display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      
+      margin-bottom: 0.5rem;
+      font-size: 25px;
+      color: #000000;
+    }
+      
+     .navbar a {
+  display: inline-block;        /* aligns nicely */
+  color: rgb(57, 45, 137);
+  font-size: 1.25rem;           /* larger text */
+  font-weight: 600;             /* makes it bolder */
+  padding: 14px 20px;           /* more clickable area */
+  text-decoration: none;
+  transition: all 0.3s ease;    /* smooth hover effect */
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+  font-size: 1.3rem;            /* slightly larger on hover */
+}
+      .project-section {
+      position: sticky;
+      top: 0;
+      height: 80%;
+      width: 100%;
+      
+      font-size: 3rem;
+      color: white;
+      
+    }
+
+    #project1 {
+      
+      background: #95aaa6;
+    }
+
+    #project2 {
+      background: #959596;
+    }
+
+    #project3 {
+      background: #393939;
+    }
+
+    .enhanced-hero {
+  max-width: 100%;
+  background: #fff;
+  backdrop-filter: blur(14px);
+}
+
+.hero-heading {
+  font-size: 22px;
+  line-height: 1.5;
+  color: #000;
+  margin-bottom: 24px;
+}
+
+.hero-subtext {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.enhanced-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.enhanced-icons img {
+  height: 46px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(100%);
+  opacity: 0.85;
+}
+
+.enhanced-icons img:hover {
+  transform: translateY(-6px) scale(1.1);
+  filter: grayscale(0%);
+  opacity: 1;
+}
+.hero-section {
+  min-height: 100vh;        /* full screen height */
+  width: 100%;
+  display: flex;
+  align-items: center;      /* vertical center */
+  justify-content: center;  /* horizontal center */
+  padding: 120px 24px;      /* spacing for navbar */
+}
+
+.center-heading {
+  text-align: center;
+}
+
+.achievement-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+   margin-bottom: 80px;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 220px);
+  gap: 24px;
+}
+
+.achievement-card {
+  background: #0d0d0d;
+  border-radius: 16px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+}
+
+.achievement-card img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  filter: brightness(0.95);
+}
+
+.achievement-content {
+  padding: 14px;
+  text-align: center;
+}
+
+.achievement-content h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.achievement-content p {
+  font-size: 12px;
+  opacity: 0.6;
+  margin-bottom: 8px;
+}
+
+.achievement-content a {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 18px;
+  background: #000000;
+  color: #000;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  
+<body>
+ <!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">Ritika.</a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="skills.html">Skills</a>
+       <a href="projects.html">Projects</a>
+      <a href="achievement.html">Achievements</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="skills.html">Skills</a>
+     <a href="projects.html">Projects</a>
+    <a href="achievement.html">Achievements</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+    <div class="top">
+       <p class="name">Namaste!</p>
+        <h1 class="gradient-text">I'm Ritika Mittal</h1>
+        <p class="name">A Full Stack Web Developer</p>
+    
+<img class="cloudtop" src="https://em-content.zobj.net/source/google/387/cloud_2601-fe0f.png">
+<img class="cloudbottom" src="https://em-content.zobj.net/source/google/387/cloud_2601-fe0f.png">
+</div>
+   <div class="middle-container">
+    <div class="profile">
+      <img src="" alt="">
+      
+      <p> I heartily welcome you to the site.</p>
+   
+      
+    </div>
+    <hr>
+  
+   <div class="hero-section">
+  <div class="hero-text enhanced-hero">
+
+    <h2 class="hero-heading">
+      Also, a self-taught <span class="gradient-text">UI/UX Designer</span> who judges a book
+      by its cover…<br />
+      <span class="hero-subtext">
+        Because if the cover doesn’t impress you, what else can?
+      </span>
+    </h2>
+
+    <div class="icon-stack enhanced-icons">
+      <img src="css/html5.svg" alt="HTML5">
+      <img src="css/css.svg" alt="CSS3">
+      <img src="css/javascript.svg" alt="JavaScript">
+      <img src="css/react.svg" alt="React">
+      <img src="css/express.svg" alt="Express">
+      <img src="css/nodedotjs.svg" alt="Node.js">
+      <img src="css/nextdotjs.svg" alt="Next.js">
+      <img src="css/mongodb.svg" alt="MongoDB">
+      <img src="css/git.svg" alt="Git">
+      <img src="css/github.svg" alt="GitHub">
+    </div>
+
+  </div>
+</div>
+   <div class="scroll-container">
+  <div class="image-track">
+    <!-- original -->
+    <img src="css/image3.jpg" />
+    <img src="css/image1.jpg" />
+    <img src="css/image4.jpg" />
+    <img src="css/image2.jpg" />
+
+    <!-- duplicate -->
+    <img src="css/image3.jpg" />
+    <img src="css/image1.jpg" />
+    <img src="css/image4.jpg" />
+    <img src="css/image2.jpg" />
+  </div>
+</div>
+
+    <div class="hero-section" >
+      <div class="hero-text">
+        
+        <h2 style="color: black;">
+          I'm currently looking to join a <span class="gradient-text">cross-functional</span> team
+        </h2>
+        <p style="margin-top: 0; margin-bottom: 0.5rem;">that values improving people's lives through accessible design.</p>
+        <p style="margin-top: 0; margin-bottom: 0.5rem; font-size: 15px; font-family: 'Montserrat', sans-serif;">I create delightful digital products that create an equilibrium
+          between user needs and business goals.</p>
+      </div>
+  
+<br><br>
+    </div>
+    
+    <div class="top" style="height: 200px;">
+      <h1>My Projects</h1>
+      <p class="name">Explore</p>
+  
+      </div>
+      <!-- Portfolio Section Start -->
+    <div class="portfolio-container" >
+        <section class="project-card">
+          <div class="project-header">
+            <span class="project-number">01</span>
+            <div>
+              <p class="client-name">ReWear – Sustainable Fashion</p>
+              <p class="client-label">ReWear is a sustainable fashion exchange platform where you can trade, donate, or shop pre-loved fashion.</p>
+            </div>
+            <a href="https://ritikamittal-19.github.io/Re-Wear-website/" target="_blank" class="live-button">LIVE</a>
+          </div>
+          <div class="project-thumbs">
+            <img src="css/pr31.png" alt="Project Image 2" />
+            <img src="css/pr33.png" alt="Project Image 3" />
+            
+            <img src="css/pr32.png" alt="Project Image 1" />
+          </div>
+        </section>
+
+        <section class="project-card">
+          <div class="project-header">
+            <span class="project-number">02</span>
+            <div>
+              <p class="client-name">Ride-GoSmart Ride Booking Website </p>
+              <p class="client-label">A real-time ride-hailing and ride-pooling app enabling instant bookings, live trip tracking, and cost-efficient ride matching using React Native, FastAPI, MongoDB, and WebSockets.</p>
+            </div>
+            <a href="https://shopora-five.vercel.app" target="_blank" class="live-button">LIVE</a>
+          </div>
+          <div class="project-thumbs">
+            <img src="css/ride2.png" alt="Project Image 2" />
+              <img src="css/ride1.png" alt="Project Image 3" />
+            <img src="css/ride3.png" alt="Project Image 1" />
+          
+          
+          </div>
+        </section>
+
+          <section class="project-card">
+            <div class="project-header">
+              <span class="project-number">03</span>
+              <div>
+                <p class="client-name">Shopora-The Future of AI-Driven Multi-Vendor eCommerce</p>
+                <p class="client-label">An AI-powered multivendor e-commerce platform offering personalized shopping, smart recommendations, and vendor management built with the PERN stack.</p>
+              </div>
+              <a href="https://shopora-five.vercel.app" target="_blank" class="live-button">LIVE</a>
+            </div>
+            
+            <div class="project-thumbs">
+              <img src="css/shop1.png" alt="Project Image 1" />
+              <img src="css/shop2.png" alt="Project Image 2" />
+              <img src="css/shop3.png" alt="Project Image 3" />
+            </div>
+          </section>
+    </div>
+
+   
+      <div class="achievement-wrapper">
+  <div class="heading center-heading">
+  <h1 class="gradient-text">Achievements & Certifications</h1>
+  <p>Selected certifications and achievements.</p>
+</div>
+
+  <div class="achievement-grid">
+
+    <div class="achievement-card">
+      <img src="css/c2.pdf" alt="Java Programming Mastery">
+      <div class="achievement-content">
+        <h3 class="gradient-text">Java Programming Mastery</h3>
+        <p>ScholarHat</p>
+        <a href="css/c2.pdf" target="_blank">VIEW</a>
+      </div>
+    </div>
+
+    <div class="achievement-card">
+      <img src="css/c3.pdf" alt="TCS iON Career Edge">
+      <div class="achievement-content">
+        <h3 class="gradient-text">TCS iON Career Edge</h3>
+        <p>TCS</p>
+        <a href="css/c3.pdf" target="_blank">VIEW</a>
+      </div>
+    </div>
+
+    <div class="achievement-card">
+      <img src="css/c4.pdf" alt="Nestlé E-Learning">
+      <div class="achievement-content">
+        <h3 class="gradient-text">Nestlé E-Learning</h3>
+        <p>Nestlé</p>
+        <a href="css/c4.pdf" target="_blank">VIEW</a>
+      </div>
+    </div>
+
+    <div class="achievement-card">
+      <img src="css/c1.pdf" alt="Tech Innovation">
+      <div class="achievement-content">
+        <h3 class="gradient-text">Tech Innovation</h3>
+        <p>NaukriCampus</p>
+        <a href="css/c1.pdf" target="_blank">VIEW</a>
+      </div>
+    </div>
+
+    <div class="achievement-card">
+      <img src="css/c5.jpg" alt="Flipkart Runway">
+      <div class="achievement-content">
+        <h3 class="gradient-text">Flipkart Runway S5</h3>
+        <p>Flipkart</p>
+        <a href="css/c5.jpg" target="_blank">VIEW</a>
+      </div>
+    </div>
+
+    <div class="achievement-card">
+      <img src="css/c6.png" alt="Google Program">
+      <div class="achievement-content">
+        <h3 class="gradient-text">Google Program</h3>
+        <p>Google</p>
+        <a href="css/c6.png" target="_blank">VIEW</a>
+      </div>
+    </div>
+
+  </div>
+      </div>            
+
+</div>
+
+  <div class="bottom-container">
+    <p style="color: white">You can connect through various ways</p>
+        <br>  
+    <a class="footer-link" href="https://www.linkedin.com/">LinkedIn</a>
+    <a class="footer-link" href="https://twitter.com/">Twitter</a>
+    <a class="footer-link" href="http://127.0.0.1:5500/Fashionista_files/Fashionista.html">Website</a>
+    <p>© 2024 Ritika Mittal.</p>
+  </div>
+
+<script>
+  const navbar = document.getElementById("navbar");
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  // Glass effect on scroll
+  window.addEventListener("scroll", () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+  });
+
+  // Mobile menu toggle
+  menuBtn.addEventListener("click", () => {
+    const open = mobileMenu.style.display === "flex";
+    mobileMenu.style.display = open ? "none" : "flex";
+    menuBtn.textContent = open ? "☰" : "✕";
+  });
+</script>
+</body>
+    
+</html>
+
+
+
+
+
+
+
+

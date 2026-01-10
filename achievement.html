@@ -1,0 +1,325 @@
+
+  <title>Achievements & Certifications</title>
+
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --card: rgba(255, 255, 255, 0.06);
+      --text: #ffffff;
+      --muted: #a1a1aa;
+      --primary: #7c3aed;
+      --glass: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* ================= NAVBAR ================= */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 24px 0;
+      transition: 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      padding: 14px 0;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #7c3aed, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #7c3aed, #ec4899);
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      margin: 12px 16px 0;
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .mobile-menu a {
+      padding: 14px 20px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .mobile-menu a:hover {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .menu-btn {
+        display: block;
+      }
+    }
+
+    /* ================= ACHIEVEMENTS ================= */
+    section {
+      padding: 160px 24px 120px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .heading {
+      text-align: center;
+      margin-bottom: 64px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.6s ease;
+    }
+
+    .heading.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .heading h1 {
+      font-size: 44px;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, #7c3aed, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .heading p {
+      color: var(--muted);
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .cert-card {
+      background: var(--card);
+      backdrop-filter: blur(14px);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.5s ease;
+    }
+
+    .cert-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cert-card img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: contain;
+      margin-bottom: 16px;
+    }
+
+    .cert-card h3 {
+      font-size: 16px;
+      margin: 10px 0 6px;
+    }
+
+    .cert-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .cert-card a {
+      display: inline-block;
+      padding: 8px 14px;
+      background: linear-gradient(90deg, #7c3aed, #ec4899);
+      color: white;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">Ritika.</a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="skills.html">Skills</a>
+       <a href="projects.html">Projects</a>
+      <a href="achievement.html">Achievements</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="skills.html">Skills</a>
+     <a href="projects.html">Projects</a>
+    <a href="achievement.html">Achievements</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- ACHIEVEMENTS -->
+<section>
+  <div class="container">
+
+    <div class="heading">
+      <h1>Achievements & Certifications</h1>
+      <p>Here are some of the certifications I've earned.</p>
+    </div>
+
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <img src="css/c2.pdf">
+        <h3>Java Programming Mastery</h3>
+        <p>Issued by ScholarHat</p>
+        <a href="css/c2.pdf" target="_blank">View</a>
+      </div>
+
+      <div class="cert-card">
+        <img src="css/c3.pdf">
+        <h3>TCS iON Career Edge</h3>
+        <p>Issued by TCS</p>
+        <a href="css/c3.pdf" target="_blank">View</a>
+      </div>
+
+      <div class="cert-card">
+        <img src="css/c4.pdf">
+        <h3>Nestlé E-Learning Course</h3>
+        <p>Issued by Nestlé</p>
+        <a href="css/c4.pdf" target="_blank">View</a>
+      </div>
+
+      <div class="cert-card">
+        <img src="css/c1.pdf">
+        <h3>Certificate in Tech Innovation</h3>
+        <p>Issued by NaukriCampus</p>
+        <a href="css/c1.pdf" target="_blank">View</a>
+      </div>
+
+      <div class="cert-card">
+        <img src="css/c5.jpg">
+        <h3>Flipkart Runway – Season 5</h3>
+        <p>Issued by Flipkart</p>
+        <a href="css/c5.jpg" target="_blank">View</a>
+      </div>
+
+      <div class="cert-card">
+        <img src="css/c6.png">
+        <h3>Google Program Completion</h3>
+        <p>Issued by Google</p>
+        <a href="css/c6.png" target="_blank">View</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const navbar = document.getElementById("navbar");
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  window.addEventListener("scroll", () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+  });
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.style.display =
+      mobileMenu.style.display === "flex" ? "none" : "flex";
+    menuBtn.textContent = menuBtn.textContent === "☰" ? "✕" : "☰";
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll(".heading, .cert-card").forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
