@@ -260,15 +260,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 18px;
-  margin-top: 20px;
+  gap: 25px;
+  padding: 20px;
 }
 
 .enhanced-icons img {
   height: 46px;
   transition: transform 0.3s ease, filter 0.3s ease;
-  filter: grayscale(100%);
+  filter: grayscale(50%);
   opacity: 0.85;
+  background-color: white;
+  padding: 10px;
 }
 
 .enhanced-icons img:hover {
@@ -277,77 +279,299 @@
   opacity: 1;
 }
 .hero-section {
-  min-height: 100vh;        /* full screen height */
+  min-height: 40vh;        /* full screen height */
   width: 100%;
   display: flex;
   align-items: center;      /* vertical center */
   justify-content: center;  /* horizontal center */
-  padding: 120px 24px;      /* spacing for navbar */
+  padding: 40px 24px;      /* spacing for navbar */
 }
 
 .center-heading {
   text-align: center;
 }
 
-.achievement-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 80px;
-   margin-bottom: 80px;
+
+/* SECTION BACKGROUND */
+/* SECTION SPACING */
+
+.achievements-section {
+ 
+  padding: 120px 10% 200px; /* extra space on top */
+  color: white;
 }
+
+/* SOLID NEON HEADING */
+
+.neon-heading {
+  font-size: 3rem;
+  text-align: center;
+  color: #a855f7; /* solid neon purple */
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+/* subtitle */
+
+.center-heading p {
+  text-align: center;
+  color: #9ca3af;
+  margin-bottom: 60px;
+  font-size: 1rem;
+}
+
+/* GRID */
 
 .achievement-grid {
   display: grid;
-  grid-template-columns: repeat(3, 220px);
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
 }
 
+/* CARD */
+
 .achievement-card {
-  background: #0d0d0d;
+  background: rgba(255,255,255,0.03);
+ 
   border-radius: 16px;
-  aspect-ratio: 1 / 1;
+  padding: 20px;
+  text-align: center;
+  transition: 0.4s ease;
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
-  transition: transform 0.3s ease;
+}
+
+/* glowing border */
+
+.achievement-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  box-shadow: 0 0 15px #9333ea;
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 .achievement-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 0 30px #9333ea;
 }
+
+/* IMAGE */
 
 .achievement-card img {
   width: 100%;
-  height: 60%;
+  height: 160px;
   object-fit: cover;
-  filter: brightness(0.95);
+  border-radius: 10px white;
+  margin-bottom: 15px;
 }
 
-.achievement-content {
-  padding: 14px;
-  text-align: center;
-}
+/* CONTENT */
 
 .achievement-content h3 {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 4px;
+  color: #d8b4fe;
+  margin-bottom: 15px;
 }
 
 .achievement-content p {
-  font-size: 12px;
-  opacity: 0.6;
-  margin-bottom: 8px;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
 }
 
-.achievement-content a {
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 18px;
-  background: #000000;
-  color: #000;
-  font-size: 12px;
-  font-weight: 600;
+
+.space-achievements {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* FULLSCREEN VIDEO */
+
+/* VIDEO */
+
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -3;
+}
+
+/* DARK OVERLAY + GRID */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+/* LAYOUT */
+
+.space-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 100px;
+  align-items: center;
+  padding: 120px 10%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* LEFT TEXT */
+
+.space-text {
+  flex: 1;
+   text-align: left;
+  padding-bottom: 40px;
+}
+
+.space-text h2 {
+  font-size: 3rem;
+  margin-bottom: 25px;
+  color: white;
+}
+
+.space-text span {
+  color: #a855f7;
+   font-style: italic;
+}
+.space-text p {
+  text-align: justify;
+  text-justify: inter-word;
+  color: #bbb;
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+
+/* BUTTON */
+
+.space-btn {
+  margin-top: 25px;
+  padding: 12px 28px;
+  background: transparent;
+  border: 1px solid #a855f7;
+  color: #a855f7;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.space-btn:hover {
+  background: #a855f7;
+  color: white;
+  box-shadow: 0 0 20px #a855f7;
+}
+
+/* default collapsed */
+
+.space-gallery img {
+  width: 350px;
+  object-fit: cover;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.4s ease;
+  filter: brightness(1.0);
+}
+
+.space-text h2.center-heading {
+  text-align: center;
+}
+
+
+.footer {
+  
+  color: white;
+  padding: 60px 10% 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* grid background */
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* layout */
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+
+/* left */
+
+.footer-left h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.footer-left p {
+  color: #aaa;
+  margin-top: 5px;
+}
+
+/* center */
+
+.footer-center p {
+  margin: 0;
+  color: #ccc;
+}
+
+.footer-center a {
+  color: #a855f7;
   text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-center a:hover {
+  text-decoration: underline;
+}
+
+/* right */
+
+.footer-right a {
+  margin-left: 20px;
+  color: #bbb;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-right a:hover {
+  color: #a855f7;
+}
+
+/* bottom */
+
+.footer-bottom {
+  margin-top: 40px;
+  text-align: center;
+  color: #777;
+  font-size: 0.85rem;
+  position: relative;
+  z-index: 1;
 }
 
     </style>
@@ -388,8 +612,7 @@
 <img class="cloudbottom" src="https://em-content.zobj.net/source/google/387/cloud_2601-fe0f.png">
 </div>
    <div class="middle-container">
-    <div class="profile">
-      <img src="" alt="">
+    <div class="profile" style="color: white;">
       
       <p> I heartily welcome you to the site.</p>
    
@@ -398,9 +621,9 @@
     <hr>
   
    <div class="hero-section">
-  <div class="hero-text enhanced-hero">
+  <div class="hero-text">
 
-    <h2 class="hero-heading">
+    <h2 class="hero-heading" style="color:white">
       Also, a self-taught <span class="gradient-text">UI/UX Designer</span> who judges a book
       by its cover…<br />
       <span class="hero-subtext">
@@ -423,7 +646,9 @@
 
   </div>
 </div>
-   <div class="scroll-container">
+
+
+   <div class="scroll-container" style="padding-bottom: 50px;">
   <div class="image-track">
     <!-- original -->
     <img src="css/image3.jpg" />
@@ -439,19 +664,42 @@
   </div>
 </div>
 
-    <div class="hero-section" >
-      <div class="hero-text">
-        
-        <h2 style="color: black;">
-          I'm currently looking to join a <span class="gradient-text">cross-functional</span> team
-        </h2>
-        <p style="margin-top: 0; margin-bottom: 0.5rem;">that values improving people's lives through accessible design.</p>
-        <p style="margin-top: 0; margin-bottom: 0.5rem; font-size: 15px; font-family: 'Montserrat', sans-serif;">I create delightful digital products that create an equilibrium
-          between user needs and business goals.</p>
-      </div>
-  
-<br><br>
+  <section class="space-about" style="padding-top: 150px;">
+
+  <!-- Background video -->
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="video/video1.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="space-container">
+
+    <!-- LEFT TEXT -->
+    <div class="space-text">
+      <h2 >About<span> Me</span></h2>
+
+      <p >
+       Hey, I’m Ritika! I enjoy solving problems, from debugging code to optimizing systems. I’m currently pursuing B.Tech at IIIT Kota with a 9.19 CGPA, ranking in the top 1% of my batch. Before that, I graduated as a school topper with 97% in ICSE, which taught me discipline early on.</p>
+
+      <p>
+        Outside academics, I’m deep into competitive programming <br>2⭐ on CodeChef  <br>1700+ LeetCode rating <br> 500+ DSA problems solved <br>
+      </p>
+
+      <p>
+        I also work as a Student Placement Coordinator, managing communication for 200+ students and learning how real-world systems operate behind the scenes. I like building things that work — and then making them work better.
+      </p>
+
+      <button class="space-btn">Explore More →</button>
     </div>
+
+    <!-- RIGHT IMAGES -->
+    <div class="space-gallery">
+    <img src="video/img2.png">
+</div>
+  </div>
+</section>
+   
     
     <div class="top" style="height: 200px;">
       <h1>My Projects</h1>
@@ -460,44 +708,12 @@
       </div>
       <!-- Portfolio Section Start -->
     <div class="portfolio-container" >
-        <section class="project-card">
-          <div class="project-header">
-            <span class="project-number">01</span>
-            <div>
-              <p class="client-name">ReWear – Sustainable Fashion</p>
-              <p class="client-label">ReWear is a sustainable fashion exchange platform where you can trade, donate, or shop pre-loved fashion.</p>
-            </div>
-            <a href="https://ritikamittal-19.github.io/Re-Wear-website/" target="_blank" class="live-button">LIVE</a>
-          </div>
-          <div class="project-thumbs">
-            <img src="css/pr31.png" alt="Project Image 2" />
-            <img src="css/pr33.png" alt="Project Image 3" />
-            
-            <img src="css/pr32.png" alt="Project Image 1" />
-          </div>
-        </section>
+       
 
-        <section class="project-card">
-          <div class="project-header">
-            <span class="project-number">02</span>
-            <div>
-              <p class="client-name">Ride-GoSmart Ride Booking Website </p>
-              <p class="client-label">A real-time ride-hailing and ride-pooling app enabling instant bookings, live trip tracking, and cost-efficient ride matching using React Native, FastAPI, MongoDB, and WebSockets.</p>
-            </div>
-            <a href="https://shopora-five.vercel.app" target="_blank" class="live-button">LIVE</a>
-          </div>
-          <div class="project-thumbs">
-            <img src="css/ride22.png" alt="Project Image 2" />
-              <img src="css/ride1.png" alt="Project Image 3" />
-            <img src="css/ride33.png" alt="Project Image 1" />
-          
-          
-          </div>
-        </section>
-
+        
           <section class="project-card">
             <div class="project-header">
-              <span class="project-number">03</span>
+              <span class="project-number">01</span>
               <div>
                 <p class="client-name">Shopora-The Future of AI-Driven Multi-Vendor eCommerce</p>
                 <p class="client-label">An AI-powered multivendor e-commerce platform offering personalized shopping, smart recommendations, and vendor management built with the PERN stack.</p>
@@ -512,9 +728,43 @@
             </div>
           </section>
 
+        <section class="project-card">
+          <div class="project-header">
+            <span class="project-number">02</span>
+            <div>
+              <p class="client-name">Ride-GoSmart Ride Booking Website </p>
+              <p class="client-label">A real-time ride-hailing and ride-pooling app enabling instant bookings, live trip tracking, and cost-efficient ride matching using React Native, FastAPI, MongoDB, and WebSockets.</p>
+            </div>
+            <a href="https://ride-go-final.vercel.app/" target="_blank" class="live-button">LIVE</a>
+          </div>
+          <div class="project-thumbs">
+            <img src="css/ride22.png" alt="Project Image 2" />
+              <img src="css/ride1.png" alt="Project Image 3" />
+            <img src="css/ride33.png" alt="Project Image 1" />
+          
+          
+          </div>
+        </section>
+
+      <section class="project-card">
+          <div class="project-header">
+            <span class="project-number">03</span>
+            <div>
+              <p class="client-name">ReWear - Sustainable Fashion</p>
+              <p class="client-label">ReWear is a sustainable fashion exchange platform where you can trade, donate, or shop pre-loved fashion.</p>
+            </div>
+            <a href="https://ritikamittal-19.github.io/Re-Wear-website/" target="_blank" class="live-button">LIVE</a>
+          </div>
+          <div class="project-thumbs">
+            <img src="css/pr31.png" alt="Project Image 2" />
+            <img src="css/pr33.png" alt="Project Image 3" />
+            
+            <img src="css/pr32.png" alt="Project Image 1" />
+          </div>
+        </section>
            <section class="project-card">
             <div class="project-header">
-              <span class="project-number">03</span>
+              <span class="project-number">04</span>
               <div>
                 <p class="client-label">PROJECT</p>
             <p class="client-name">Splitr — AI-Powered Expense Sharing Platform</p>
@@ -534,82 +784,117 @@
           </section>
     </div>
 
+   <section class="achievements-section">
+        <div class="space-text" >
+          <h2 class="center-heading">My<span> Certifications</span></h2>
+       
+        </div>
+
+        <div class="achievement-grid">
+
+          <!-- repeat cards same structure -->
+           
+          <div class="achievement-card">
+            <img src="css/c1.pdf" alt="Tech Innovation">
+            <div class="achievement-content">
+              <h3 class="gradient-text">Tech Innovation</h3>
+              <p>NaukriCampus</p>
+              
+            </div>
+          </div>
+
+          <div class="achievement-card">
+            <img src="css/c5.jpg" alt="Flipkart Runway">
+            <div class="achievement-content">
+              <h3 class="gradient-text">Flipkart Runway S5</h3>
+              <p>Flipkart</p>
+            
+            </div>
+          </div>
+
+          <div class="achievement-card">
+            <img src="css/c6.png" alt="Google Program">
+            <div class="achievement-content">
+              <h3 class="gradient-text">Google Program</h3>
+              <p>Google</p>
+             
+            </div>
+          </div>
+          <div class="achievement-card">
+            <img src="css/c2.pdf" alt="Java Programming Mastery">
+            <div class="achievement-content">
+              <h3 class="gradient-text">Java Programming Mastery</h3>
+              <p>ScholarHat</p>
+            
+            </div>
+          </div>
+
+          <div class="achievement-card">
+            <img src="css/c3.pdf" alt="TCS iON Career Edge">
+            <div class="achievement-content">
+              <h3 class="gradient-text">TCS iON Career Edge</h3>
+              <p>TCS</p>
+            
+            </div>
+          </div>
+
+          <div class="achievement-card">
+            <img src="css/c4.pdf" alt="Nestlé E-Learning">
+            <div class="achievement-content">
+              <h3 class="gradient-text">Nestlé E-Learning</h3>
+              <p>Nestlé</p>
+             
+            </div>
+          </div>
+
+
+        </div>
+    </section>
+    
+    
+     <div class="hero-section" >
+      <div class="hero-text">
+        
+        <h2 style="color: white">
+          I'm currently looking to join a <span class="gradient-text">cross-functional</span> team
+        </h2>
    
-      <div class="achievement-wrapper">
-  <div class="heading center-heading">
-  <h1 class="gradient-text">Achievements & Certifications</h1>
-  <p>Selected certifications and achievements.</p>
+        <p style="margin-top: 0; margin-bottom: 0.5rem; font-size: 15px; font-family: 'Montserrat', sans-serif; color: white">that values improving people's lives through interactive websites.</p>
+      </div>
+  
+    </div>
+
 </div>
+<footer class="footer">
 
-  <div class="achievement-grid">
+  <div class="footer-content">
 
-    <div class="achievement-card">
-      <img src="css/c2.pdf" alt="Java Programming Mastery">
-      <div class="achievement-content">
-        <h3 class="gradient-text">Java Programming Mastery</h3>
-        <p>ScholarHat</p>
-        <a href="css/c2.pdf" target="_blank">VIEW</a>
-      </div>
+    <!-- LEFT -->
+    <div class="footer-left">
+      <h3>Ritika Mittal</h3>
+      <p>Full Stack Developer</p>
     </div>
 
-    <div class="achievement-card">
-      <img src="css/c3.pdf" alt="TCS iON Career Edge">
-      <div class="achievement-content">
-        <h3 class="gradient-text">TCS iON Career Edge</h3>
-        <p>TCS</p>
-        <a href="css/c3.pdf" target="_blank">VIEW</a>
-      </div>
+    <!-- CENTER -->
+    <div class="footer-center">
+      <p>ritikamittal108@gmail.com</p>
+      <a href="https://drive.google.com/drive/folders/1g99yJVMGL0yRm5NSwIknkJiX9X2DOjx4?usp=share_link" target="_blank">View resume ↗</a>
     </div>
 
-    <div class="achievement-card">
-      <img src="css/c4.pdf" alt="Nestlé E-Learning">
-      <div class="achievement-content">
-        <h3 class="gradient-text">Nestlé E-Learning</h3>
-        <p>Nestlé</p>
-        <a href="css/c4.pdf" target="_blank">VIEW</a>
-      </div>
-    </div>
-
-    <div class="achievement-card">
-      <img src="css/c1.pdf" alt="Tech Innovation">
-      <div class="achievement-content">
-        <h3 class="gradient-text">Tech Innovation</h3>
-        <p>NaukriCampus</p>
-        <a href="css/c1.pdf" target="_blank">VIEW</a>
-      </div>
-    </div>
-
-    <div class="achievement-card">
-      <img src="css/c5.jpg" alt="Flipkart Runway">
-      <div class="achievement-content">
-        <h3 class="gradient-text">Flipkart Runway S5</h3>
-        <p>Flipkart</p>
-        <a href="css/c5.jpg" target="_blank">VIEW</a>
-      </div>
-    </div>
-
-    <div class="achievement-card">
-      <img src="css/c6.png" alt="Google Program">
-      <div class="achievement-content">
-        <h3 class="gradient-text">Google Program</h3>
-        <p>Google</p>
-        <a href="css/c6.png" target="_blank">VIEW</a>
-      </div>
+    <!-- RIGHT -->
+    <div class="footer-right">
+      <a href="https://linkedin.com/in/ritika-mittal-5454sr">LinkedIn</a>
+      <a href="https://github.com/RitikaMittal-19">GitHub</a>
+      <a href="https://splitr-wheat-tau.vercel.app">Website</a>
     </div>
 
   </div>
-      </div>            
 
-</div>
-
-  <div class="bottom-container">
-    <p style="color: white">You can connect through various ways</p>
-        <br>  
-    <a class="footer-link" href="https://www.linkedin.com/">LinkedIn</a>
-    <a class="footer-link" href="https://twitter.com/">Twitter</a>
-    <a class="footer-link" href="http://127.0.0.1:5500/Fashionista_files/Fashionista.html">Website</a>
-    <p>© 2024 Ritika Mittal.</p>
+  <div class="footer-bottom">
+    © 2026 Ritika Mittal
   </div>
+
+</footer>
 
 <script>
   const navbar = document.getElementById("navbar");

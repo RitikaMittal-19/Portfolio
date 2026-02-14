@@ -55,11 +55,6 @@ width: 100px;
 height: 100px;
 }
 .middle-container{
-<<<<<<< HEAD
-background-color: azure;
-=======
-background-color: rgb(255, 255, 255);
->>>>>>> 47f1eae (final changes)
 position: relative;
 }
 .bottom-container{
