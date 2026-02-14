@@ -572,6 +572,14 @@
   font-size: 0.85rem;
   position: relative;
   z-index: 1;
+}#cursorGif {
+  position: absolute;
+  width: 120px;
+  pointer-events: none;
+  z-index: 9999;
+  transform-origin: center;
+
+  filter: hue-rotate(290deg) saturate(190%) brightness(0.8) contrast(120%);
 }
 
     </style>
@@ -584,22 +592,22 @@
     <a href="index.html" class="logo">Ritika.</a>
 
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="skills.html">Skills</a>
-       <a href="projects.html">Projects</a>
-      <a href="achievement.html">Achievements</a>
-      <a href="contact.html">Contact</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+       <a href="#projects">Projects</a>
+      <a href="#achievement">Achievements</a>
+      <a href="#contact">Contact</a>
     </div>
 
     <button class="menu-btn" id="menuBtn">☰</button>
   </div>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Home</a>
-    <a href="skills.html">Skills</a>
-     <a href="projects.html">Projects</a>
-    <a href="achievement.html">Achievements</a>
-    <a href="contact.html">Contact</a>
+   <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+       <a href="#projects">Projects</a>
+      <a href="#achievement">Achievements</a>
+      <a href="#contact">Contact</a>
   </div>
 </nav>
 
@@ -608,8 +616,7 @@
         <h1 class="gradient-text">I'm Ritika Mittal</h1>
         <p class="name">A Full Stack Web Developer</p>
     
-<img class="cloudtop" src="https://em-content.zobj.net/source/google/387/cloud_2601-fe0f.png">
-<img class="cloudbottom" src="https://em-content.zobj.net/source/google/387/cloud_2601-fe0f.png">
+<img class="cloudbottom" src="video/girl.gif">
 </div>
    <div class="middle-container">
     <div class="profile" style="color: white;">
@@ -620,7 +627,7 @@
     </div>
     <hr>
   
-   <div class="hero-section">
+   <div class="hero-section" id="skills">
   <div class="hero-text">
 
     <h2 class="hero-heading" style="color:white">
@@ -664,7 +671,7 @@
   </div>
 </div>
 
-  <section class="space-about" style="padding-top: 150px;">
+  <section class="space-about" style="padding-top: 150px;" id="about">
 
   <!-- Background video -->
   <video autoplay muted loop playsinline class="bg-video">
@@ -701,7 +708,7 @@
 </section>
    
     
-    <div class="top" style="height: 200px;">
+    <div class="top" style="height: 200px;" id="projects">
       <h1>My Projects</h1>
       <p class="name">Explore</p>
   
@@ -784,7 +791,7 @@
           </section>
     </div>
 
-   <section class="achievements-section">
+   <section class="achievements-section" id="achievement">
         <div class="space-text" >
           <h2 class="center-heading">My<span> Certifications</span></h2>
        
@@ -852,7 +859,7 @@
     </section>
     
     
-     <div class="hero-section" >
+     <div class="hero-section" id="contact" >
       <div class="hero-text">
         
         <h2 style="color: white">
@@ -865,7 +872,7 @@
     </div>
 
 </div>
-<footer class="footer">
+<footer class="footer" >
 
   <div class="footer-content">
 
@@ -896,6 +903,7 @@
 
 </footer>
 
+<img src="video/rocket.gif" id="cursorGif">
 <script>
   const navbar = document.getElementById("navbar");
   const menuBtn = document.getElementById("menuBtn");
@@ -912,6 +920,57 @@
     mobileMenu.style.display = open ? "none" : "flex";
     menuBtn.textContent = open ? "☰" : "✕";
   });
+
+
+  const gif = document.getElementById("cursorGif");
+
+let x = window.innerWidth / 2;
+let y = window.innerHeight / 2;
+
+let vx = 0;
+let vy = 0;
+
+let targetX = Math.random() * window.innerWidth;
+let targetY = Math.random() * window.innerHeight;
+
+function newTarget() {
+  targetX = Math.random() * window.innerWidth;
+  targetY = Math.random() * window.innerHeight;
+}
+function animate() {
+  const dx = targetX - x;
+  const dy = targetY - y;
+
+  const dist = Math.hypot(dx, dy);
+
+  const ax = dx * 0.0008;
+  const ay = dy * 0.0008;
+
+  vx += ax;
+  vy += ay;
+
+  vx *= 0.92;
+  vy *= 0.92;
+
+  x += vx;
+  y += vy;
+
+  const angle = Math.atan2(vy, vx) * 180 / Math.PI;
+
+  // scroll offset
+  const scrollY = window.scrollY;
+
+  gif.style.left = x + "px";
+  gif.style.top = y + scrollY + "px";
+  gif.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+
+  if (dist < 60) newTarget();
+
+  requestAnimationFrame(animate);
+}
+
+newTarget();
+animate();
 </script>
 </body>
     

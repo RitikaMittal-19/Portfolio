@@ -8,8 +8,7 @@ body{
     font-size: 15px;
 }
 .top{
-    background-color: slateblue;
-    background-color: black;
+    
     padding-top: 200px;
     position: relative;
     height: 600px;
@@ -43,16 +42,22 @@ font-size: 20px;
 .cloudtop{
 position: absolute;
 left: 65%;
-top: 100px;
+top: 150px;
 width: 100px;
 height: 100px;
+rotate: 25deg;
+  filter: hue-rotate(290deg) saturate(190%) brightness(0.8) contrast(120%);
+
 }
-.cloudbottom{
-position: absolute;
-left: 30%;
-top: 450px;
-width: 100px;
-height: 100px;
+.cloudbottom {
+  position: absolute;
+  left: 20%;
+  top: 450px;
+  width: 200px;
+  height: 200px;
+
+  /* dark purple cinematic */
+  filter: hue-rotate(290deg) saturate(190%) brightness(0.8) contrast(120%);
 }
 .middle-container{
 position: relative;
